@@ -1,9 +1,5 @@
-class App{
-    constructor(){
-        
-    }
-}
+import {App} from './app.js'
 
-document.addEventListener('DOMContentLoaded', function () {
+document.addEventListener('DOMContentLoaded', () => {
     new App()
 })
