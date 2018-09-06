@@ -46,12 +46,11 @@ export class App {
             this.crearSelect(this.aGeneros,this.dom.slGenero, i-1)
             this.generosFirst = false
             this.dom.btnEnviar.disabled = false
+            this.dom.slAutores.disabled = false
         } 
         
        i = this.dom.slGenero.selectedIndex
-       console.log(this.aGeneros[i].autores)
-
-       this.dom.slAutores.disabled = false
+       console.log(this.aGeneros[i].autores)       
        this.crearSelect(this.aGeneros[i].autores, this.dom.slAutores)
     }
 
