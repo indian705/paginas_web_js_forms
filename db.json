@@ -1,0 +1,30 @@
+{
+  "articulos": [
+    {
+      "id": 1,
+      "title": "json-server",
+      "author": "typicode"
+    },
+    {
+      "author": "Alejandro",
+      "id": 2,
+      "title": "Todos los lunes"
+    },
+    {
+      "title": "Martes",
+      "author": "Pepe Pérez",
+      "editorial": "Boracay",
+      "id": 5
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
