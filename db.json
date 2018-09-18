@@ -1,20 +1,15 @@
 {
   "articulos": [
     {
-      "id": 1,
-      "title": "json-server",
-      "author": "typicode"
-    },
-    {
-      "author": "Alejandro",
+      "author": {"name": "Alejandro"},
       "id": 2,
-      "title": "Todos los lunes"
+      "title": " Todos los lunes "
     },
     {
       "title": "Martes",
-      "author": "Pepe Pérez",
+      "author": "Pepe Perez",
       "editorial": "Boracay",
-      "id": 5
+      "id": 3
     }
   ],
   "comments": [
@@ -26,5 +21,9 @@
   ],
   "profile": {
     "name": "typicode"
-  }
+  },
+  "tareas" : [
+    {"id": 1, "name": "Clases curso Paginas", "isComplete": true},
+    {"id": 2, "name": "Reunion de trabajo", "isComplete": false}
+  ]
 }
