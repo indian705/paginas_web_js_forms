@@ -21,3 +21,7 @@ ul.tareas li span.borrar-tarea {
 .hecho {
     text-decoration: line-through
 }
+
+.inactivo {
+    opacity: 0.5;
+}
