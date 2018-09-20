@@ -2,17 +2,16 @@
  * Servicio AJAX
  */
 export class FetchService {
-    constructor(config) {
-        this.config = config
+    constructor() {
         this.oDatos = {}
     }
 
-    get() {
+    send(url, config) {        
         return new Promise( (resolve, reject) => {
-            fetch(this.config.url, {method: this.config.method})
+            fetch(url, config)
             .then(
                 (response) => {
-                    if (response.status === 200) {
+                    if (response.status >= 200 && response.status < 300) {
                         return response.json()
                     } else {
                         reject( 

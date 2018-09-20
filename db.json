@@ -31,6 +31,16 @@
       "isComplete": false
     },
     {
+      "id": 2,
+      "name": "Reunion de trabajo",
+      "isComplete": true
+    },
+    {
+      "name": "Aprender Angular",
+      "isComplete": true,
+      "id": 3
+    },
+    {
       "name": "Utilizar componentes",
       "isComplete": false,
       "id": 4
