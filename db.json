@@ -28,29 +28,34 @@
     {
       "id": 1,
       "name": "Clases curso Paginas",
-      "isComplete": true
-    },
-    {
-      "id": 2,
-      "name": "Reunion de trabajo",
       "isComplete": false
     },
     {
-      "name": "Aprender Angular",
+      "name": "Utilizar componentes",
       "isComplete": false,
-      "id": 3
+      "id": 4
     }
   ],
   "tareas2": [
     {
       "id": 1,
       "name": "Clases curso Paginas",
-      "isComplete": true
+      "isComplete": false
     },
     {
       "id": 2,
       "name": "Reunion de trabajo",
-      "isComplete": false
+      "isComplete": true
+    },
+    {
+      "name": "Aprender Angular",
+      "isComplete": true,
+      "id": 3
+    },
+    {
+      "name": "Utilizar componentes",
+      "isComplete": false,
+      "id": 4
     }
   ]
 }

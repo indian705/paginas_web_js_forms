@@ -1,11 +1,15 @@
-import { FetchService } from "./fetch-service.js";
+import { FetchService } from "./fetch-service.js"
+import {  MENSAJES } from "./mensajes.js"
+
 
 export class ListaTareas {
     constructor() {
         this.nodoListaTareas = document.querySelector('#lista')
         this.nodoBtnAdd = document.querySelector('#btnAdd')
         this.nodoNewTarea = document.querySelector('#inTarea')
+        this.nodoBtnBorrarSelect = document.querySelector('#btn-borrar-select')
         this.nodoBtnAdd.addEventListener('click', this.addTarea.bind(this))
+        this.nodoBtnBorrarSelect.addEventListener('click', this.borrarSelect.bind(this)) 
         this.uRL = 'http://localhost:3000/tareas'
         this.aTareas = []
         this.fetchService = new FetchService()       
@@ -16,25 +20,34 @@ export class ListaTareas {
         this.fetchService.send(this.uRL, {method: 'GET' })
             .then( data => {
                 this.aTareas = data
-
-                /* this.aTareas = this.aTareas.filter(
-                    (item) => {                        
-                        if (item.name.indexOf('Aprender') >= 0 ) { 
-                            return true} 
+                
+                /* console.dir(this.aTareas)
+                this.aTareas = this.aTareas.filter(
+                    (item) => {
+                        console.log(item.name.indexOf('Aprender')) 
+                        if (item.name.indexOf('Aprender') >= 0 ) { return true} 
                         else { return false }
                     }
-                ) */
-
+                )
+                console.dir(this.aTareas) */
+                console.log("Ejecutando getTareas")   
                 this.renderLista()
             },
             error => {console.dir(error)}
             )
     }
+
     
     renderLista() {
         let html = ''
+        this.nodoBtnBorrarSelect.disabled = true
         this.aTareas.forEach(
-            item =>  html += this.renderTarea(item)
+            item => { 
+                if (item.isComplete && this.nodoBtnBorrarSelect.disabled) {
+                    this.nodoBtnBorrarSelect.disabled = false
+                    }
+                html += this.renderTarea(item) 
+            }
         )
         this.nodoListaTareas.innerHTML = html
         this.aNodosCheck = document.querySelectorAll('[name="is-completa"]')
@@ -83,8 +96,6 @@ export class ListaTareas {
         )
     }
 
-
-
     checkTarea(oEv){
         console.log(oEv.target.dataset.id)
         console.log(oEv.target.checked)
@@ -106,21 +117,37 @@ export class ListaTareas {
             )
     }
 
-    borrarTarea(oEv){
-        console.log(oEv.target.dataset.id)
-        let url = this.uRL + '/' + oEv.target.dataset.id
+    borrarTarea(p){
+        let id
+        if (p.target) {
+            id = p.target.dataset.id
+            if (!window.confirm( MENSAJES.listaTareas.confirmacion)) {return}
+        } else {id = p.id} 
+        let url = this.uRL + '/' + id
         this.fetchService.send(url, {method: 'DELETE' })
             .then(
                 data => { 
                     console.log(data)
-                    this.getTareas() 
+                    if (p.target || p.isUltima) {
+                        this.getTareas() 
+                    }
                 },
                 error => console.log(error)
-            )      
+            )  
     }
 
-
-
-
-
+    borrarSelect(){        
+        let aSeleccionados = this.aTareas.filter(
+            (item) => { return item.isComplete}
+        )
+        // Si no controlamos el disabled del boton
+        // if(!aSeleccionados.length) {return}
+        if (!window.confirm( MENSAJES.listaTareas.confirmacion)) {return}        
+        aSeleccionados.forEach(            
+            (item,i, array) => {
+                let isUltima = (i+1 === array.length) ? true : false
+                this.borrarTarea( {id: item.id, isUltima : isUltima} )
+            }
+        )        
+    }
 }
