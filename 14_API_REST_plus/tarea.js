@@ -32,8 +32,9 @@ export class Tarea {
 
     sendChecked () {
         //console.log("Emitido Evento ckeckCompleta")
-        this.nodoTarea.dispatchEvent(new Event('checkCompleta', {
-            'bubbles': true})) 
+        this.nodoTarea.dispatchEvent(new CustomEvent('checkCompleta', {
+            'bubbles': true, detail: {key: 23}
+        })) 
     }
 
     sendBorrar () {

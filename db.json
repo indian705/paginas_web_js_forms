@@ -31,19 +31,14 @@
       "isComplete": false
     },
     {
-      "id": 2,
-      "name": "Reunion de trabajo",
-      "isComplete": true
-    },
-    {
-      "name": "Aprender Angular",
-      "isComplete": true,
-      "id": 3
-    },
-    {
       "name": "Utilizar componentes",
-      "isComplete": false,
+      "isComplete": true,
       "id": 4
+    },
+    {
+      "name": "Aprender React",
+      "isComplete": false,
+      "id": 5
     }
   ],
   "tareas2": [
