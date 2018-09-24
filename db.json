@@ -39,6 +39,11 @@
       "name": "Aprender React",
       "isComplete": false,
       "id": 5
+    },
+    {
+      "name": "Aprender Angular",
+      "isComplete": false,
+      "id": 6
     }
   ],
   "tareas2": [

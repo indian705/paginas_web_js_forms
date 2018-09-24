@@ -18,5 +18,11 @@ export const ITEMS = [
         "pages/about.html"
       ]
     ]
-  
+
+export const MENSAJES = {
+  listaTareas : {
+      confirmacion : "¿Esta usted segur@?"
+  }
+}
+        
   
