@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'cas-contacts',
-  templateUrl: './contacts.component.html',
-  styleUrls: ['./contacts.component.css']
+  selector: 'cas-contacts',  
+  template:`
+    <p>
+      contacts works!
+    </p>
+  `,
+  styles: []
 })
 export class ContactsComponent implements OnInit {
 
