@@ -1,3 +1,27 @@
-<p>
-  tarea-plus works!
-</p>
+<div class="card">
+  <div class="card-header">
+    <h4 class="card-title">Lista Plus</h4>
+  </div>
+  <div class="card-body">
+    <div class="form-group">
+      <label for="">Nueva tarea</label>
+      <input type="text" name="tarea" id="tarea" class="form-control" 
+      [(ngModel)]="newTarea.nombre">
+      
+    </div>
+    <button type="button" class="btn btn-success" (click)="addTarea()">Añadir</button>
+  </div>
+  <div *ngIf="aTareas.length" class="card-footer text-muted">
+    <h4 class="card-title">Tareas</h4>
+    <ul *ngFor="let item of aTareas; let i = index" class="list-group">
+      <li class="list-group-item">
+        <input type="checkbox" [(ngModel)]="item.isCompleted">
+        <!-- <span [class.completada]="item.isCompleted">{{item.nombre}}</span> -->
+        <span [ngClass]="{completada: item.isCompleted}">{{item.nombre}}</span>
+        <button type="button" class="btn btn-danger btn-sm"
+        (click)="borrarTarea(i)">Borrar</button>
+      </li>
+    </ul>
+  </div>
+</div>
+
