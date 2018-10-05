@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from '../../environments/environment';
+import { ContactoIf } from '../models/contacto.model';
 
 
 
@@ -15,14 +16,20 @@ export class UsuariosService {
     this.url = environment.api_users
   }
 
-  getLista(){
-    return new Promise((resolve, reject) => {
+  getLista(): Promise<Array<ContactoIf>>{
+    return new Promise<Array<ContactoIf>>((resolve, reject) => {
       this.http.get(this.url).toPromise().
-      then((response: any) => {
-        resolve(response.results)
-      })
+      then((response: any) => resolve(response.results),
+      (error)=> console.log(error))
     })    
   }
+
+  async getListaAA(): Promise<Array<ContactoIf>>{
+    let response:any = await this.http.get(this.url).toPromise()
+    return (response.results)    
+  }
+
+
 }
 
 

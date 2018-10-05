@@ -10,6 +10,7 @@ import { TareasModule } from './tareas/tareas.module';
 
 import { registerLocaleData } from '@angular/common';
 import localeEs from '@angular/common/locales/es';
+import { ArticuloComponent } from './articulo/articulo.component';
 
 // the second parameter 'es' is optional
 registerLocaleData(localeEs, 'es');
@@ -18,6 +19,7 @@ registerLocaleData(localeEs, 'es');
   declarations: [
     AppComponent,
     AboutComponent,
+    ArticuloComponent,
   ],
   imports: [
     BrowserModule,
