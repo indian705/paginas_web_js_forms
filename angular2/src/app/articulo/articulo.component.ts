@@ -4,7 +4,7 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
   selector: 'cas-articulo',
   templateUrl: './articulo.component.html',
   styleUrls: ['./articulo.component.css'],
-  encapsulation: ViewEncapsulation.ShadowDom
+  encapsulation: ViewEncapsulation.Emulated
 })
 export class ArticuloComponent implements OnInit {
   @Input() autor: string
